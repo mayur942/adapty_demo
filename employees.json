@@ -1,0 +1,29 @@
+[
+    {
+        "firstName": "Mayur",
+        "lastName": "Shinde",
+        "userName": "mayur-shinde",
+        "password" : "mayur_zandu",
+        "gender": "M",
+        "phoneNumber": 9988776655,  
+        "Details": [{
+            "companyName": "Adapty",
+            "startDate": "13/06/2022",
+            "endDate": ""
+        }],
+        "city": "Nerul",
+        "skillSet": [{
+            "skillName": "HTML",
+            "yearsOfExperience": 5
+        },{
+            "skillName": "CSS",
+            "yearsOfExperience": 5
+        },{
+            "skillName": "JavaScript",
+            "yearsOfExperience": 5
+        }],
+        "primarySkill": "HTML",
+        "secondarySKill": "JavaScript",
+        "currentProject": ""
+    }
+]
