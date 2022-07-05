@@ -1,0 +1,110 @@
+body{
+    background-image: url(https://wallpaperaccess.com/full/1347419.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    /* width: cover; */
+    /* height: 100%;
+    width: 100%; */
+}
+
+.fcontainer
+{
+    display:flex;
+
+    height: 45vh;
+
+    flex-direction: row;
+    /* justify-content: flex-end;
+    justify-content: flex-start;
+    justify-content: center; */
+    align-items:flex-start  ;
+    justify-content: center;
+    
+}
+
+.fi{
+  
+   width: 170px;
+   height: 122px;
+   
+}
+
+#heading{
+    margin: 10px;
+}
+
+
+html, body, h1, form, fieldset, input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    }
+   
+   body { font-family: Helvetica, Arial, sans-serif; font-size: 12px; }
+   
+   #registration {
+       color: #fff;
+       background: transparent;
+       background: -webkit-gradient(
+           linear,
+           left bottom,
+           left top,
+           color-stop(0, rgb(255, 48, 48)),
+           
+           );
+       
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 430px;
+        }
+   
+    #registration a {
+         color: #f5f5f3;
+         text-shadow: 0px -1px 0px #000;
+         }
+   
+   #registration fieldset {
+         padding: 20px;
+         }
+   
+   input.text {
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        border:solid 1px #444;
+        font-size: 14px;
+        width: 90%;
+        padding: 7px 8px 7px 8px;
+        background: #ddd;
+        background: -moz-linear-gradient(
+             center bottom,
+             rgb(225,225,225) 0%,
+             rgb(215,215,215) 54%,
+             rgb(173,173,173) 100%
+        );
+        background: -webkit-gradient(
+             linear,
+             left bottom,
+             left top,
+             color-stop(0, rgb(225,225,225)),
+             color-stop(0.54, rgb(215,215,215)),
+             color-stop(1, rgb(173,173,173))
+         );
+         color:#333;
+         text-shadow:0px 1px 0px #FFF;
+         -moz-box-shadow: 0px 1px 0px #777;
+         -webkit-box-shadow: 0px 1px 0px #777;
+         box-shadow: 0px 1px 0px #777;
+    }
+
+  
+      #registerNew{
+        font-weight: bold;
+      }
+
+      #registerNew a{
+       text-decoration: none;
+        color: black;
+      }
