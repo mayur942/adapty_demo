@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Rstyle.css">
+</head>
+<body>
+    
+    <div class="fi" ><img src="A1.svg" alt=""></div>
+    
+    <div class="fcontainer">
+        <div id="registration">
+            <h2 id="heading">Create an Account</h2>
+           
+            <!-- <form id="RegisterUserForm" action="" method="post"> -->
+            <form id="RegisterUserForm" method="get" onsubmit="return false">
+            <!-- <form id="RegisterUserForm" method="get" action="./employeeDetails.html"> -->
+                <!-- <form id="RegisterUserForm" action="./employeeDetails.html" method="get"> -->
+                <fieldset>
+                    <p>
+                    <label for="firstName">First Name</label>
+                    <br>
+                    <input id="firstName" name="name" type="text" class="text" value="" required>
+                    </p>
+
+                    <p>
+                    <label for="lastName">Last Name</label>
+                    <br>
+                    <input id="lastName" name="Lname" type="text" class="text" value="" required />
+                    </p>
+
+                    <p>
+                    <label for="gender">Gender</label>
+                    <br>
+                    
+                    <select name="gender" id="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    </p>
+
+                    <p>
+                    <label for="username">Username</label>
+                    <br>
+                    <input id="username" name="username" type="email" class="text" value="" required />
+                    <p id="username-matched"></p>
+                    </p>
+<!--             
+                    <p>
+                    <label for="telephone">Phone Number</label>
+                    <input id="telephone" name="tel" type="tel" class="text" value="" maxlength="10" required >
+                    </p> -->
+                
+                    <p>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" class="text" type="password" required />
+                    </p>
+                
+                    <p><input id="acceptTerms" name="acceptTerms" type="checkbox" required/>
+                    <label for="acceptTerms">
+                    I agree to the <a href="">Terms and Conditions</a> and <a href="">Privacy Policy</a>
+                    </label>
+                    </p>
+                
+                    <p>
+                    <button id="registerNew" type="submit">Register</button> 
+                    <button id="home-btn"> <a href="" class="LinkButton">Home</a></button>
+                    </p>
+                </fieldset>  
+            </form>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+
+</body>
+</html>
