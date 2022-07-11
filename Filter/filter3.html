@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+</head>
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .container{
+        /* border: 1px solid black; */
+        /* height: 600px; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    td{
+        border: 1px solid gray;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        width: 214px;
+    }
+    button{
+        margin-top: 10px;
+    }
+    h3{
+        margin: 30px;
+    }
+    h1{
+        margin: 20px;
+    }
+    
+    input{
+        border: none;
+        font-size: 13px;
+        font-family: ui-sans-serif;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #refreshed{
+        visibility: hidden;
+        border: 1px solid green;
+        padding: 10px;
+        width: 400px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    #tab{
+        border-width: 2px;
+        border-style: solid;
+        border-color: white;
+        padding: 0%;
+    }
+    
+
+</style>
+<body>
+
+    <div class="container">
+        <h1>Admin View</h1>
+        <h4 id="refreshed" class="text-success">Already Refreshed</h4>
+        <div id="tab">
+            <table>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="" id="filterFname" oninput="filterUser()" placeholder="Filter by First Name"></td>
+                    <td><input type="text" name="" id="filterLname" oninput="filterUser()"   placeholder="Filter by Last Name"></td>
+                    <td><input type="text" name="" id="filterUsername" oninput="filterUser()"  placeholder="Filter by Username/Email"></td>
+                    <td><input type="text" name="" id="filterPrimarySkill" oninput="filterUser()"  placeholder="Filter by Primary Skill"></td>
+                    <td><input type="text" name="" id="filterSecondarySkill" oninput="filterUser()"  placeholder="Filter by Secondary Skill"></td>
+                </tr>
+    
+                <tr>
+                    <td><b>Serial No.</b></td>
+                    <td><b>First Name</b></td>
+                    <td><b>Last Name</b></td>
+                    <td><b>Username</b></td>
+                    <td><b>Primary Skill (experience)</b></td>
+                    <td><b>Secondary Skill (experience)</b></td>
+                </tr>
+            </table>
+            <table id="empTable"  >
+                
+                
+            </table>
+        </div>
+
+        <button class="btn btn-primary btn-sm" onclick="refresh()">Refresh</button>
+    </div>
+    
+    <script>
+        let Users=[
+        
+        {
+            "fname": "Umang",
+            "lname": "Bheda",
+            "gender": "M",
+            "username": "umang@gmail.com",
+            "password": "123",
+            "address": "Bhayender",
+            "previousOrg": "Infy",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Javascript",
+            "priEx": 1,
+            "secondarySkill": "React",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        
+        {
+            "fname": "Shashwat",
+            "lname": "Gupta",
+            "gender": "M",
+            "username": "shashwat@gmail.com",
+            "password": "123",
+            "address": "Chembur",
+            "previousOrg": "LTI",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Python",
+            "priEx": 2,
+            "secondarySkill": "C#",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Fravash",
+            "lname": "Mohta",
+            "gender": "M",
+            "username": "fravash@gmail.com",
+            "password": "123",
+            "address": "Thane",
+            "previousOrg": "TCS",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Java",
+            "priEx": 2,
+            "secondarySkill": "Python",
+            "secEx": 3,
+            "isAdmin": true
+        },
+        {
+            "fname": "Mayur",
+            "lname": "Shinde",
+            "gender": "M",
+            "username": "mayur@gmail.com",
+            "password": "123",
+            "address": "Nerul",
+            "previousOrg": "Atos",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "ML",
+            "priEx": 1,
+            "secondarySkill": "C++",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Nikhil",
+            "lname": "Sewani",
+            "gender": "M",
+            "username": "nikhil@gmail.com",
+            "password": "123",
+            "address": "Ulhasnagar",
+            "previousOrg": "Accenture",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Python",
+            "priEx": 1,
+            "secondarySkill": "R",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Rutuja",
+            "lname": "Bamgude",
+            "gender": "F",
+            "username": "rutuja@gmail.com",
+            "password": "123",
+            "address": "Kalyan",
+            "previousOrg": "Capgemini",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Python",
+            "priEx": 1,
+            "secondarySkill": "Java",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Bhagyashree",
+            "lname": "Salunkhe",
+            "gender": "F",
+            "username": "bhagyashree@gmail.com",
+            "password": "123",
+            "address": "Mumbai",
+            "previousOrg": "TCS",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Python",
+            "priEx": 2,
+            "secondarySkill": ".net",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Yograj",
+            "lname": "Gurav",
+            "gender": "M",
+            "username": "yograj@gmail.com",
+            "password": "456",
+            "address": "Mumbai",
+            "previousOrg": "Wipro",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Java",
+            "priEx": 1,
+            "secondarySkill": "R",
+            "secEx": 1,
+            "isAdmin": false
+        },
+        {
+            "fname": "Harsh",
+            "lname": "Raut",
+            "gender": "M",
+            "username": "harsh@gmail.com",
+            "password": "123",
+            "address": "Dhule",
+            "previousOrg": "Kotak",
+            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+            "primarySkill": "Javascript",
+            "priEx": 1,
+            "secondarySkill": "C#",
+            "secEx": 1,
+            "isAdmin": false
+        }
+    ]
+
+    const displayTable=(users)=>{
+        let str="";
+        users.forEach((e,i)=>{
+            str+=`<tr class="a">
+            <td class="text-secondary">${i}</td>
+            <td class="text-secondary">${e.fname}</td>
+            <td class="text-secondary">${e.lname}</td>
+            <td class="text-secondary">${e.username}</td>
+            <td class="text-secondary">${e.primarySkill} (${e.priEx} yrs)</td>
+            <td class="text-secondary">${e.secondarySkill} (${e.secEx} yrs)</td>
+            </tr>`;
+        })
+        document.getElementById("empTable").innerHTML+=str;
+    }
+    
+    
+    
+    let newFilteredArray=Users;
+    displayTable(newFilteredArray)
+    
+    function filterUser(){
+        let fname=document.getElementById("filterFname").value;
+        let lname=document.getElementById("filterLname").value;
+        let username=document.getElementById("filterUsername").value;
+        let priskill=document.getElementById("filterPrimarySkill").value;
+        let secskill=document.getElementById("filterSecondarySkill").value;
+        newFilteredArray=Users.filter(e=>e.fname.toLowerCase().includes(fname.toLowerCase()) && e.lname.toLowerCase().includes(lname.toLowerCase()) && e.primarySkill.toLowerCase().includes(priskill.toLowerCase()) && e.username.toLowerCase().includes(username.toLowerCase()) && e.secondarySkill.toLowerCase().includes(secskill.toLowerCase()))
+        let x=document.getElementById("empTable").innerHTML="";
+        if (newFilteredArray.length===0) {
+            
+            let x=document.getElementById("empTable").innerHTML="<h3>No Employees to Display 😢</h3>";
+        }
+        else{
+            
+            displayTable(newFilteredArray);
+        }
+
+        
+    }
+//   
+
+
+   function refresh(){
+    let fname=document.getElementById("filterFname").value=null;
+        let lname=document.getElementById("filterLname").value=null;
+        let username=document.getElementById("filterUsername").value=null;
+        let priskill=document.getElementById("filterPrimarySkill").value=null;
+        let secskill=document.getElementById("filterSecondarySkill").value=null;
+
+        console.log(newFilteredArray.length,Users.length);
+    if (newFilteredArray.length===Users.length) {
+        // alert("already refreshed")
+        newFilteredArray=Users;
+        let refreshed=document.getElementById("refreshed");
+        let tab=document.getElementById("tab");
+        tab.style.borderColor="green";
+
+        setTimeout(() => {
+            tab.style.borderColor="white";
+        }, 2000);
+        
+        refreshed.style.visibility="visible";
+        setTimeout(() => {
+            refreshed.style.visibility="hidden";
+            
+        }, 2000);
+
+        
+    }
+    else{
+        
+        newFilteredArray=Users;
+        document.getElementById("empTable").innerHTML=""
+        displayTable(Users)
+    }
+   }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
