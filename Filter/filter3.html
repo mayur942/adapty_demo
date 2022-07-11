@@ -24,7 +24,7 @@
     }
 
     td{
-        border: 1px solid gray;
+        border: 1px solid black;
         font-family: Arial, Helvetica, sans-serif;
         text-align: center;
         padding: 10px;
@@ -79,11 +79,10 @@
                     <td></td>
                     <td><input type="text" name="" id="filterFname" oninput="filterUser()" placeholder="Filter by First Name"></td>
                     <td><input type="text" name="" id="filterLname" oninput="filterUser()"   placeholder="Filter by Last Name"></td>
-                    <td><input type="text" name="" id="filterUsername" oninput="filterUser()"  placeholder="Filter by Username/Email"></td>
+                    <td><input type="text" name="" id="filterEmail" oninput="filterUser()"  placeholder="Filter by Username/Email"></td>
                     <td><input type="text" name="" id="filterPrimarySkill" oninput="filterUser()"  placeholder="Filter by Primary Skill"></td>
                     <td><input type="text" name="" id="filterSecondarySkill" oninput="filterUser()"  placeholder="Filter by Secondary Skill"></td>
                 </tr>
-    
                 <tr>
                     <td><b>Serial No.</b></td>
                     <td><b>First Name</b></td>
@@ -105,152 +104,183 @@
     <script>
         let Users=[
         
-        {
-            "fname": "Umang",
-            "lname": "Bheda",
-            "gender": "M",
-            "username": "umang@gmail.com",
-            "password": "123",
-            "address": "Bhayender",
-            "previousOrg": "Infy",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Javascript",
-            "priEx": 1,
-            "secondarySkill": "React",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        
-        {
-            "fname": "Shashwat",
-            "lname": "Gupta",
-            "gender": "M",
-            "username": "shashwat@gmail.com",
-            "password": "123",
-            "address": "Chembur",
-            "previousOrg": "LTI",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Python",
-            "priEx": 2,
-            "secondarySkill": "C#",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Fravash",
-            "lname": "Mohta",
-            "gender": "M",
-            "username": "fravash@gmail.com",
-            "password": "123",
-            "address": "Thane",
-            "previousOrg": "TCS",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Java",
-            "priEx": 2,
-            "secondarySkill": "Python",
-            "secEx": 3,
-            "isAdmin": true
-        },
-        {
-            "fname": "Mayur",
-            "lname": "Shinde",
-            "gender": "M",
-            "username": "mayur@gmail.com",
-            "password": "123",
-            "address": "Nerul",
-            "previousOrg": "Atos",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "ML",
-            "priEx": 1,
-            "secondarySkill": "C++",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Nikhil",
-            "lname": "Sewani",
-            "gender": "M",
-            "username": "nikhil@gmail.com",
-            "password": "123",
-            "address": "Ulhasnagar",
-            "previousOrg": "Accenture",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Python",
-            "priEx": 1,
-            "secondarySkill": "R",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Rutuja",
-            "lname": "Bamgude",
-            "gender": "F",
-            "username": "rutuja@gmail.com",
-            "password": "123",
-            "address": "Kalyan",
-            "previousOrg": "Capgemini",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Python",
-            "priEx": 1,
-            "secondarySkill": "Java",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Bhagyashree",
-            "lname": "Salunkhe",
-            "gender": "F",
-            "username": "bhagyashree@gmail.com",
-            "password": "123",
-            "address": "Mumbai",
-            "previousOrg": "TCS",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Python",
-            "priEx": 2,
-            "secondarySkill": ".net",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Yograj",
-            "lname": "Gurav",
-            "gender": "M",
-            "username": "yograj@gmail.com",
-            "password": "456",
-            "address": "Mumbai",
-            "previousOrg": "Wipro",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Java",
-            "priEx": 1,
-            "secondarySkill": "R",
-            "secEx": 1,
-            "isAdmin": false
-        },
-        {
-            "fname": "Harsh",
-            "lname": "Raut",
-            "gender": "M",
-            "username": "harsh@gmail.com",
-            "password": "123",
-            "address": "Dhule",
-            "previousOrg": "Kotak",
-            "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
-            "primarySkill": "Javascript",
-            "priEx": 1,
-            "secondarySkill": "C#",
-            "secEx": 1,
-            "isAdmin": false
-        }
-    ]
+    {
+        "fname": "Admin",
+        "lname": "Manager",
+        "gender": "M",
+        "email": "admin@gmail.com",
+        "password": "123",
+        "address": "Mumbai",
+        "previousOrg": "Adapty",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Jvascript",
+        "primaryExp": 2,
+        "secondarySkill": "Javascript",
+        "secondaryExp": 3,
+        "isAdmin": true
+    },
+    {
+        "fname": "Umang",
+        "lname": "Bheda",
+        "gender": "M",
+        "email": "umang@gmail.com",
+        "password": "123",
+        "address": "Bhayender",
+        "previousOrg": "Infy",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Javascript",
+        "primaryExp": 1,
+        "secondarySkill": "React",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Yograj",
+        "lname": "Gurav",
+        "gender": "M",
+        "email": "yograj@gmail.com",
+        "password": "123",
+        "address": "Kalwa",
+        "previousOrg": "Wipro",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Java",
+        "primaryExp": 1,
+        "secondarySkill": "R",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Shashwat",
+        "lname": "Gupta",
+        "gender": "M",
+        "email": "shashwat@gmail.com",
+        "password": "123",
+        "address": "Chembur",
+        "previousOrg": "LTI",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Python",
+        "primaryExp": 2,
+        "secondarySkill": "c#",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Fravash",
+        "lname": "Mohta",
+        "gender": "M",
+        "email": "fravash@gmail.com",
+        "password": "123",
+        "address": "Thane",
+        "previousOrg": "Google",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Java",
+        "primaryExp": 2,
+        "secondarySkill": "Python",
+        "secondaryExp": 3,
+        "isAdmin": false
+    },
+    {
+        "fname": "Mayur",
+        "lname": "Shinde",
+        "gender": "M",
+        "email": "mayur@gmail.com",
+        "password": "123",
+        "address": "Nerul",
+        "previousOrg": "Atos",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "ML",
+        "primaryExp": 1,
+        "secondarySkill": "C++",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Nikhil",
+        "lname": "Sewani",
+        "gender": "M",
+        "email": "nikhil@gmail.com",
+        "password": "123",
+        "address": "Ulhasnagar",
+        "previousOrg": "Accenture",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Python",
+        "primaryExp": 1,
+        "secondarySkill": "R",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Rutuja",
+        "lname": "Bamgude",
+        "gender": "F",
+        "email": "rutuja@gmail.com",
+        "password": "123",
+        "address": "Kalyan",
+        "previousOrg": "Capgemini",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Python",
+        "primaryExp": 1,
+        "secondarySkill": "Java",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Bhagyashree",
+        "lname": "Salunkhe",
+        "gender": "F",
+        "email": "bhagyashree@gmail.com",
+        "password": "123",
+        "address": "Mumbai",
+        "previousOrg": "TCS",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Python",
+        "primaryExp": 2,
+        "secondarySkill": ".net",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Atharva",
+        "lname": "Godse",
+        "gender": "M",
+        "email": "atharva@gmail.com",
+        "password": "123",
+        "address": "Thane",
+        "previousOrg": "Mindtree",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Java",
+        "primaryExp": 1,
+        "secondarySkill": "R",
+        "secondaryExp": 1,
+        "isAdmin": false
+    },
+    {
+        "fname": "Harsh",
+        "lname": "Raut",
+        "gender": "M",
+        "email": "harsh@gmail.com",
+        "password": "123",
+        "address": "Dhule",
+        "previousOrg": "Kotak",
+        "startDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "endDate": "Wed Jul 06 2022 15:53:04 GMT+0530 (India Standard Time)",
+        "primarySkill": "Javascript",
+        "primaryExp": 1,
+        "secondarySkill": "C#",
+        "secondaryExp": 1,
+        "isAdmin": false
+    }
+]
 
     const displayTable=(users)=>{
         let str="";
@@ -259,9 +289,9 @@
             <td class="text-secondary">${i}</td>
             <td class="text-secondary">${e.fname}</td>
             <td class="text-secondary">${e.lname}</td>
-            <td class="text-secondary">${e.username}</td>
-            <td class="text-secondary">${e.primarySkill} (${e.priEx} yrs)</td>
-            <td class="text-secondary">${e.secondarySkill} (${e.secEx} yrs)</td>
+            <td class="text-secondary">${e.email}</td>
+            <td class="text-secondary">${e.primarySkill} (${e.primaryExp} yrs)</td>
+            <td class="text-secondary">${e.secondarySkill} (${e.secondaryExp} yrs)</td>
             </tr>`;
         })
         document.getElementById("empTable").innerHTML+=str;
@@ -275,14 +305,14 @@
     function filterUser(){
         let fname=document.getElementById("filterFname").value;
         let lname=document.getElementById("filterLname").value;
-        let username=document.getElementById("filterUsername").value;
-        let priskill=document.getElementById("filterPrimarySkill").value;
-        let secskill=document.getElementById("filterSecondarySkill").value;
-        newFilteredArray=Users.filter(e=>e.fname.toLowerCase().includes(fname.toLowerCase()) && e.lname.toLowerCase().includes(lname.toLowerCase()) && e.primarySkill.toLowerCase().includes(priskill.toLowerCase()) && e.username.toLowerCase().includes(username.toLowerCase()) && e.secondarySkill.toLowerCase().includes(secskill.toLowerCase()))
+        let email=document.getElementById("filterEmail").value;
+        let primarySkill=document.getElementById("filterPrimarySkill").value;
+        let secondarySkill=document.getElementById("filterSecondarySkill").value;
+        newFilteredArray=Users.filter(e=>e.fname.toLowerCase().includes(fname.toLowerCase()) && e.lname.toLowerCase().includes(lname.toLowerCase()) && e.primarySkill.toLowerCase().includes(primarySkill.toLowerCase()) && e.email.toLowerCase().includes(email.toLowerCase()) && e.secondarySkill.toLowerCase().includes(secondarySkill.toLowerCase()))
         let x=document.getElementById("empTable").innerHTML="";
         if (newFilteredArray.length===0) {
             
-            let x=document.getElementById("empTable").innerHTML="<h3>No Employees to Display 😢</h3>";
+            let x=document.getElementById("empTable").innerHTML="<h3>No Employees to Display</h3>";
         }
         else{
             
@@ -297,7 +327,7 @@
    function refresh(){
     let fname=document.getElementById("filterFname").value=null;
         let lname=document.getElementById("filterLname").value=null;
-        let username=document.getElementById("filterUsername").value=null;
+        let username=document.getElementById("filterEmail").value=null;
         let priskill=document.getElementById("filterPrimarySkill").value=null;
         let secskill=document.getElementById("filterSecondarySkill").value=null;
 
