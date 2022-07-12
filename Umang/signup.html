@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <style>
+        *{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .container{
+        /* border: 1px solid black; */
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .form input{
+        margin: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        border: 1px solid black;
+        height: 29px;
+        height: 29px;
+        width: 215px;
+    }
+    h1{
+        margin-bottom: 20px;
+        text-decoration: underline;
+    }
+    button{
+       display: block !important;
+       margin: auto;
+       margin-top: 20px;
+       padding: 5px 40px !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <h1> Registeration Form</h1>
+    <div class="form">
+
+        <input type="text" name="" id="fname" placeholder="First Name"><br>
+        <input type="text" name="" id="lname" placeholder="Last Name"><br>
+        <input type="text" name="" id="username" placeholder="Userame"><br>
+        <input type="text" name="" id="password" placeholder="Password"><br>
+        <input type="text" name="" id="gender" placeholder="Gender"><br>
+        <input type="text" name="" id="address" placeholder="Address"><br>
+        <input type="text" name="" id="prevorg" placeholder="Previous Organisation"><br>
+        <input type="text" name="" id="startdate" placeholder="Start Date"><br>
+        <input type="text" name="" id="enddate" placeholder="End Date"><br>
+        <input type="text" name="" id="priskill" placeholder="Primary Skill">
+        <input type="text" name="" id="priex" placeholder="Experience"><br>
+        <input type="text" name="" id="secskill" placeholder="Secondary Skill">
+        <input type="text" name="" id="secex" placeholder="Experience"><br>
+        <button class="btn btn-primary btn-sm" onclick="register()">Register</button>
+    </div>
+</div> 
+
+<script>
+    function register(){
+
+        let Employees=JSON.parse(localStorage.getItem("Employees"))
+        
+    let fname=document.getElementById("fname").value;
+    let lname=document.getElementById("lname").value;
+    let username=document.getElementById("username").value;
+    let password=document.getElementById("password").value;
+    let gender=document.getElementById("gender").value;
+    let address=document.getElementById("address").value;
+    let prevorg=document.getElementById("prevorg").value;
+    let startdate=document.getElementById("startdate").value;
+    let enddate=document.getElementById("enddate").value;
+    let priskill=document.getElementById("priskill").value;
+    let priex=document.getElementById("priex").value;
+    let secskill=document.getElementById("secskill").value;
+    let secex=document.getElementById("secex").value;
+    let userFound=false;
+
+
+    if (!(fname && lname && username && password && gender && address && prevorg && startdate && enddate && priskill && priex && secskill && secex)) {
+        alert("please enter all the details")
+    }
+
+    else{
+
+        Employees.forEach(e=>{
+            if (e.username===username) {
+                alert("User Already Exists")
+                userFound=true;
+            }
+        })
+
+        if (userFound===false) {
+            let newEmployee=
+            {
+                "fname": fname,
+                "lname": lname,
+                "gender": gender,
+                "username": username,
+                "password": password,
+                "address": address,
+                "previousOrg": prevorg,
+                "startDate": startdate,
+                "endDate": enddate,
+                "primarySkill": priskill,
+                "priEx": priex,
+                "secondarySkill": secskill,
+                "secEx": secex,
+                "isAdmin": false
+            }
+
+            Employees.push(newEmployee);
+            localStorage.setItem("Employees",JSON.stringify(Employees))
+
+            console.log(JSON.parse(localStorage.getItem("Employees")));
+
+            location.href="./login.html";
+        }
+
+
+        
+        
+    }
+
+
+    console.log(fname,lname);
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./index.js"></script>
+
+</body>
+</html>
